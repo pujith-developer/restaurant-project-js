@@ -36,7 +36,10 @@
                     <li><a href="#menu">MENU</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                     <li><a href="#"><i class="fa-solid fa-user"></i> Log In</a></li>
-                    <li><a href="#"><i class="fa-solid fa-basket-shopping"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-basket-shopping"></i>
+                            <span id="cartCount">0</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- <div class="online">
@@ -189,9 +192,9 @@
 
                     <div class="product-info">
                         <h3>Chicken Pizza</h3>
-                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <!-- <input type="number" name="" id="" placeholder="Enter the Quantity"> -->
                         <p>₹399</p>
-                        <a href="">add to cart</a>
+                        <a href="#" class="add-cart">add to cart</a>
                     </div>
                 </div>
 
@@ -200,9 +203,9 @@
 
                     <div class="product-info">
                         <h3>Crispy Chicken Burger</h3>
-                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <!-- <input type="number" name="" id="" placeholder="Enter the Quantity"> -->
                         <p>₹389</p>
-                        <a href="">add to cart</a>
+                        <a href="#" class="add-cart">add to cart</a>
                     </div>
                 </div>
 
@@ -211,9 +214,9 @@
 
                     <div class="product-info">
                         <h3>Chicken Wings Bucket</h3>
-                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <!-- <input type="number" name="" id="" placeholder="Enter the Quantity"> -->
                         <p>₹599</p>
-                        <a href="">add to cart</a>
+                        <a href="#" class="add-cart">add to cart</a>
                     </div>
                 </div>
 
@@ -222,10 +225,10 @@
 
                     <div class="product-info">
                         <h3>Bucket Chicken</h3>
-                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <!-- <input type="number" name="" id="" placeholder="Enter the Quantity"> -->
 
                         <p>₹459</p>
-                        <a href="">add to cart</a>
+                        <a href="#" class="add-cart">add to cart</a>
                     </div>
                 </div>
 
@@ -234,10 +237,10 @@
 
                     <div class="product-info">
                         <h3>Special Grill Chicken </h3>
-                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <!-- <input type="number" name="" id="" placeholder="Enter the Quantity"> -->
 
                         <p>₹899</p>
-                        <a href="">add to cart</a>
+                        <a href="#" class="add-cart">add to cart</a>
                     </div>
                 </div>
 
@@ -246,10 +249,10 @@
 
                     <div class="product-info">
                         <h3>BBQ Chicken </h3>
-                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <!-- <input type="number" name="" id="" placeholder="Enter the Quantity"> -->
 
                         <p>₹699</p>
-                        <a href="">add to cart</a>
+                        <a href="#" class="add-cart">add to cart</a>
                     </div>
                 </div>
 
@@ -258,10 +261,10 @@
 
                     <div class="product-info">
                         <h3>Chicken shawarma</h3>
-                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <!-- <input type="number" name="" id="" placeholder="Enter the Quantity"> -->
 
                         <p>₹299</p>
-                        <a href="">add to cart</a>
+                        <a href="#" class="add-cart">add to cart</a>
                     </div>
                 </div>
 
@@ -270,15 +273,12 @@
 
                     <div class="product-info">
                         <h3>Rice & chicken combo</h3>
-                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <!-- <input type="number" name="" id="" placeholder="Enter the Quantity"> -->
 
                         <p>₹499</p>
-                        <a href="">add to cart</a>
+                        <a href="#" class="add-cart">add to cart</a>
                     </div>
                 </div>
-            </div>
-            <div class="seeall">
-                <a href="">See All Menu</a>
             </div>
         </div>
 
@@ -341,9 +341,25 @@
         window.addEventListener("resize", showMenu);
     </script>
 
+    <script>
+        // add to cart button
+        let count = 0;
+
+        let cartButtons = document.querySelectorAll(".add-cart");
+
+        cartButtons.forEach(function (button) {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                count++;
+
+                document.getElementById("cartCount").innerText = count;
+            });
+        });
+    </script>
+
+
     <!-- reserve table and online order -->
-
-
     <section class="rtandord" id="restable">
         <h1 class="restitle">OUR SERVICES</h1>
         <div class="rtoord">
@@ -351,48 +367,85 @@
             <div class="restable">
                 <h2>Reserve a Table</h2>
                 <p>Select your details and we’ll try to get the best seats for you.</p>
+
                 <div class="restform">
-                    <div class="select-box">
-                        <p>No.Of.Members</p>
-                        <select>
-                            <option>2 Members</option>
-                            <option>4 Members</option>
-                            <option>8 Members</option>
-                            <option>10 Members</option>
-                            <option>16 Members</option>
-                            <option>20 Members</option>
-                        </select>
-                    </div>
+                    <form action="reservetable">
+                        <div class="resname">
+                            <p>Name</p>
+                            <input type="text" id="name" placeholder="Enter your name">
+                        </div>
 
-                    <div class="resdate">
-                        <p>Date</p>
-                        <input type="date" name="" id="">
-                    </div>
+                        <div class="resdate1">
+                            <p>Enter Your Phone Number</p>
+                            <input type="number" id="phone" placeholder="Phone number">
+                        </div>
 
-                    <div class="restime">
-                        <p>Time</p>
-                        <select>
-                            <option>9:00 AM</option>
-                            <option>10:00 AM</option>
-                            <option>11:00 AM</option>
-                            <option>12:00 PM</option>
-                            <option>1:00 PM</option>
-                            <option>2:00 PM</option>
-                            <option>3:00 PM</option>
-                            <option>4:00 PM</option>
-                            <option>5:00 PM</option>
-                            <option>6:00 PM</option>
-                            <option>7:00 PM</option>
-                            <option>8:00 PM</option>
-                            <option>9:00 PM</option>
-                            <option>10:00 PM</option>
-                        </select>
-                    </div>
-                    <a href="">Find A Table</a>
+                        <div class="select-box">
+                            <p>No.Of.Members</p>
+                            <select id="members">
+                                <option>2 Members</option>
+                                <option>4 Members</option>
+                                <option>8 Members</option>
+                                <option>10 Members</option>
+                                <option>16 Members</option>
+                                <option>20 Members</option>
+                            </select>
+                        </div>
+
+                        <div class="resdate">
+                            <p>Date</p>
+                            <input type="date" id="date">
+                        </div>
+
+                        <div class="restime">
+                            <p>Time</p>
+                            <select id="time">
+                                <option>9:00 AM</option>
+                                <option>10:00 AM</option>
+                                <option>11:00 AM</option>
+                                <option>12:00 PM</option>
+                                <option>1:00 PM</option>
+                                <option>2:00 PM</option>
+                                <option>3:00 PM</option>
+                                <option>4:00 PM</option>
+                                <option>5:00 PM</option>
+                                <option>6:00 PM</option>
+                                <option>7:00 PM</option>
+                                <option>8:00 PM</option>
+                                <option>9:00 PM</option>
+                                <option>10:00 PM</option>
+                            </select>
+                        </div>
+                        <a href="#" onclick="reserveTable(event)">Reserve A Table</a>
+                        <p id="successMsg"></p>
+                    </form>
                 </div>
             </div>
             <!-- line -->
             <hr class="rline">
+
+            <script>
+                // reserve table
+                function reserveTable(event) {
+                    event.preventDefault();
+
+                    let name = document.getElementById("name").value;
+                    let phone = document.getElementById("phone").value;
+
+                    if (name == "" || phone == "") {
+                        alert("Please enter your name and mobile number!");
+                        return;
+                    }
+
+                    localStorage.setItem("name", name);
+                    localStorage.setItem("phone", phone);
+
+                    alert("Registered Successfully!\nOur team will contact you soon!");
+
+                    document.getElementById("successMsg").innerHTML =
+                        "Registered Successfully! Our team will contact you soon!";
+                }
+            </script>
 
             <div class="ordonline">
                 <h2>Order Through Online</h2>
@@ -524,36 +577,25 @@
     <!-- review slide -->
     <script>
         let revindex = 0;
-
         const revslides = document.querySelector("#revslides");
         const revtotal = revslides.children.length;
 
-        // Show the selected review
         function rshowSlide() {
-            revslides.style.transform =
-                `translateX(-${revindex * 100}%)`;
+            revslides.style.transform = `translateX(-${revindex * 100}%)`;
         }
 
-        // Next review
         function rnextSlide() {
-            revindex++;
-
-            if (revindex >= revtotal) {
-                revindex = 0;
+            if (revindex < revtotal - 1) {
+                revindex++;
+                rshowSlide();
             }
-
-            rshowSlide();
         }
 
-        // Previous review
         function rprevSlide() {
-            revindex--;
-
-            if (revindex < 0) {
-                revindex = revtotal - 1;
+            if (revindex > 0) {
+                revindex--;
+                rshowSlide();
             }
-
-            rshowSlide();
         }
     </script>
 
@@ -567,22 +609,50 @@
             <div class="bform">
                 <p>DROP US A LINE AND WE'LL GET BACK TO YOU,</p>
                 <div class="bform1">
-                    <input type="text" name="" id="" placeholder=" first name*">
+                    <input type="text" name="" id="cname" placeholder=" first name*" required>
                     <input type="text" name="" id="" placeholder="last name"><br>
-                    <input type="number" name="" id="" placeholder=" Phone number*">
-                    <input type="email" name="" id="" placeholder="E-Mail*"><br>
-                    <input type="text" name="" id="" class="subm" placeholder="Subject"><br>
-                    <input type="text" name="" id="" class="subm1" placeholder="Leave Us A Message"><br>
-                    <a href="">Submit</a>
+                    <input type="number" name="" id="cphone" placeholder=" Phone number*" required>
+                    <input type="email" name="" id="cemail" placeholder="E-Mail*" required><br>
+                    <input type="text" name="" id="subject" class="subm" placeholder="Subject"><br>
+                    <input type="text" name="" id="message" class="subm1" placeholder="Leave Us A Message"><br>
+                    <a href="#" onclick="contact(event)">Submit</a>
+                    <p id="success1Msg"></p>
                 </div>
             </div>
 
             <div class="bimg">
-                <img src="/images/contact.jpg" alt="">
+                <img src="images/contact.jpg" alt="">
             </div>
         </div>
 
     </section>
+
+    <script>
+        // contact
+
+        function contact(event) {
+            event.preventDefault();
+
+            let cname = document.getElementById("cname").value;
+            let cphone = document.getElementById("cphone").value;
+            let cemail = document.getElementById("cemail").value;
+
+
+            if (cname == "" || cphone == "" || cemail == "") {
+                alert("Please enter your name , mobile number and email!");
+                return;
+            }
+
+            localStorage.setItem("cname", cname);
+            localStorage.setItem("cphone", cphone);
+            localStorage.setItem("cemail", cemail);
+
+            alert("Submitted Successfully! Thank You!");
+
+            document.getElementById("success1Msg").innerHTML =
+                "Submitted Successfully, Thank You!";
+        }
+    </script>
 
 
     <!-- footer-section -->
@@ -591,10 +661,10 @@
             <h4>ADDRESS</h4>
             <h5>120/1, RP Pudur ,salem road <br>Namakkal, 637001</h5>
             <div class="qlinks">
-            <a href="index.html">Home</a><br>
-            <a href="#restable">Reserve A Table</a><br>
-            <a href="#menu">Order Online</a><br>
-            <a href="#contact">Contact</a>
+                <a href="index.html">Home</a><br>
+                <a href="#restable">Reserve A Table</a><br>
+                <a href="#menu">Order Online</a><br>
+                <a href="#contact">Contact</a>
             </div>
         </div>
 
@@ -607,8 +677,8 @@
                 <img src="images/logo.png" alt="">
             </div>
             <div class="socialmedia">
-                <i class="fa-brands fa-instagram" ></i>
-                <i class="fa-brands fa-x-twitter" ></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-x-twitter"></i>
                 <i class="fa-brands fa-facebook-f"></i>
             </div>
         </div>
@@ -616,7 +686,8 @@
         <div class="fright">
             <div class="fconta">
                 <h4>CONTACT US</h4>
-                <p><i class="fa-regular fa-envelope"></i> cforchicken@gmail.com <br><i class="fa-solid fa-phone"></i> +91 9011445500</p>
+                <p><i class="fa-regular fa-envelope"></i> cforchicken@gmail.com <br><i class="fa-solid fa-phone"></i>
+                    +91 9011445500</p>
 
                 <div class="policy">
                     <a href="">Refund Policy</a><br>
