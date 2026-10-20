@@ -109,7 +109,7 @@ nav .fa:hover {
 /* slide parent */
 .slide {
     width: 100%;
-    height: calc(100vh - 77px);
+   
     position: relative;
     overflow: hidden;
 }
@@ -217,7 +217,8 @@ button:hover {
     /* slide page */
     .slide {
         width: 100%;
-        height: auto;
+        height: 100%;
+        top: 50px;
         min-height: 0;
         position: relative;
         display: flex;
@@ -238,7 +239,7 @@ button:hover {
 
     button {
         position: absolute;
-        top: 40%;
+        top: 50%;
         padding: 6px;
         border: none;
         background: rgba(255, 255, 255, 0.9);
@@ -263,7 +264,7 @@ button:hover {
         height: 2px;
         background-color: #412D15;
         border: none;
-        margin: 40px auto;
+        margin: 80px auto 20px;
     }
 }
 
