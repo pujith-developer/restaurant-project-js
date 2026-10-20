@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body style="background-color: #FFF8CF;">
+
+
+    <!-- landing page  -->
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-xmark" onclick="hidemenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#menu">MENU</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="#"><i class="fa-solid fa-user"></i> Log In</a></li>
+                    <li><a href="#"><i class="fa-solid fa-basket-shopping"></i></a></li>
+                </ul>
+            </div>
+            <!-- <div class="online">
+                <a href="#" class="onlineorder">Order Online</a>
+            </div> -->
+            <i class="fa fa-bars" onclick="showmenu()"></i>
+        </nav>
+
+        <!-- nav bar javascript -->
+        <script>
+            var navlinks = document.getElementById("navlinks");
+
+            function showmenu() {
+                navlinks.style.right = "0";
+            }
+
+            function hidemenu() {
+                navlinks.style.right = "-200px";
+            }
+        </script>
+
+
+        <!-- slide page -->
+        <div class="slide">
+
+            <div class="slides" id="slides">
+                <img src="./images/slide1.jpg" alt="Image 1">
+                <img src="./images/slide2.jpg" alt="Image 2">
+                <img src="./images/slide3.jpg" alt="Image 3">
+                <img src="./images/slide4.jpg" alt="Image 4">
+            </div>
+
+            <button class="prev" onclick="prevSlide()">
+                <</button> <button class="next" onclick="nextSlide()">>
+            </button>
+
+        </div>
+    </section>
+
+    <!-- page slide script  -->
+    <script>
+        let index = 0;
+
+        let slides = document.querySelector("#slides");
+
+        let total = slides.children.length;
+
+
+        function showslide() {
+            slides.style.transform = "translateX(-" + index * 100 + "%)";
+        }
+
+        function nextSlide() {
+            index++;
+            if (index == total) {
+                index = 0;
+            }
+            showslide();
+        }
+
+        function prevSlide() {
+            index--;
+            if (index < 0) {
+                index = total - 1;
+            }
+            showslide();
+        }
+        setInterval(nextSlide, 10000);
+    </script>
+
+    <!-- line -->
+    <hr class="line">
+
+
+    <!--page-2  -->
+    <section class="page2">
+
+        <!-- pg2 top -->
+        <div class="pg2top">
+            <h1>WELCOME TO C FOR CHICKEN</h1>
+            <h2>Dine-In and Delivery</h2>
+        </div>
+
+        <div class="love-section">
+
+            <div class="leftimg">
+                <img src="images/welcome-removebg-preview.png" alt="">
+            </div>
+
+            <div class="love-content">
+
+                <h1>
+                    Made With Love.<br>
+                    Quality you can taste.
+                </h1>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem qui et quam odit commodi dolorem
+                    molestias deserunt ipsam eaque laboriosam? </p> <br>
+
+                <a href="#menu">Order Online</a>
+            </div>
+
+            <div class="leftimg">
+                <img src="images/welcome2-removebg-preview.png" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- line -->
+    <hr class="wline">
+
+
+    <section class="about" id="about">
+        <h1>About Us</h1>
+        <div class="acont">
+            <div class="acont1">
+                <h1>ORIGINAL RECIPE SINCE 2010</h1>
+                <h2>A Fresh and Seasonal Cuisine</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas blanditiis explicabo, sit reprehenderit
+                    ad labore a iusto, dolore nihil, architecto amet minima dolores cum nulla quo maiores. Beatae,
+                    totam? Qui perspiciatis natus quae dignissimos fuga sapiente velit dolore placeat. Dolorem et
+                    cupiditate repellat iure magni non repudiandae enim mollitia reiciendis expedita nobis voluptatibus
+                    cumque dolorum blanditiis corrupti, itaque eius facilis?</p>
+            </div>
+            <div class="aimg">
+                <img src="images/about (1).jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Product Slider -->
+    <div class="menutitle" id="menu">
+        <h1><i class="fa-regular fa-star"></i> ALL TIME FAVORITES <i class="fa-regular fa-star"></i></h1>
+    </div>
+    <section class="slider-container">
+
+
+        <button class="menu-prev" onclick="prevMenu()">❮</button>
+
+        <!-- Visible area -->
+        <div class="menu-viewport">
+
+            <!-- Moving track -->
+            <div class="menu">
+
+                <div class="product">
+                    <img src="images/pizza.jpg" alt="Food 2">
+
+                    <div class="product-info">
+                        <h3>Chicken Pizza</h3>
+                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <p>₹399</p>
+                        <a href="">add to cart</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="images/burger.jpg" alt="Food 2">
+
+                    <div class="product-info">
+                        <h3>Crispy Chicken Burger</h3>
+                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <p>₹389</p>
+                        <a href="">add to cart</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="images/welcome.jpg" alt="Food 2">
+
+                    <div class="product-info">
+                        <h3>Chicken Wings Bucket</h3>
+                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+                        <p>₹599</p>
+                        <a href="">add to cart</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="images/welcome2.jpg" alt="Food 2">
+
+                    <div class="product-info">
+                        <h3>Bucket Chicken</h3>
+                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+
+                        <p>₹459</p>
+                        <a href="">add to cart</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="images/grill.jpg" alt="Food 2">
+
+                    <div class="product-info">
+                        <h3>Special Grill Chicken </h3>
+                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+
+                        <p>₹899</p>
+                        <a href="">add to cart</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="images/bbq.jpg" alt="Food 2">
+
+                    <div class="product-info">
+                        <h3>BBQ Chicken </h3>
+                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+
+                        <p>₹699</p>
+                        <a href="">add to cart</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="images/shawarma.jpg" alt="Food 2">
+
+                    <div class="product-info">
+                        <h3>Chicken shawarma</h3>
+                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+
+                        <p>₹299</p>
+                        <a href="">add to cart</a>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="images/rice chick.jpg" alt="Food 2">
+
+                    <div class="product-info">
+                        <h3>Rice & chicken combo</h3>
+                        <input type="number" name="" id="" placeholder="Enter the Quantity">
+
+                        <p>₹499</p>
+                        <a href="">add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="seeall">
+                <a href="">See All Menu</a>
+            </div>
+        </div>
+
+        <button class="menu-next" onclick="nextMenu()">❯</button>
+
+    </section>
+
+    <!-- line -->
+    <hr class="mline">
+
+    <script>
+        // Product Slider JavaScript
+
+        let menuIndex = 0;
+
+        const menu = document.querySelector(".menu");
+        const menuProducts = document.querySelectorAll(".product");
+        const menuViewport = document.querySelector(".menu-viewport");
+
+        function showMenu() {
+
+            if (menuProducts.length === 0) return;
+
+            const isMobile = window.innerWidth <= 768;
+
+            let moveDistance;
+
+            if (isMobile) {
+                moveDistance = menuViewport.offsetWidth;
+            } else {
+                moveDistance = menuProducts[0].offsetWidth + 20;
+            }
+
+            menu.style.transform =
+                `translateX(-${menuIndex * moveDistance}px)`;
+        }
+
+        function nextMenu() {
+
+            const isMobile = window.innerWidth <= 768;
+
+            const visibleProducts = isMobile ? 1 : 3;
+
+            if (menuIndex < menuProducts.length - visibleProducts) {
+                menuIndex++;
+            }
+
+            showMenu();
+        }
+
+        function prevMenu() {
+
+            if (menuIndex > 0) {
+                menuIndex--;
+            }
+
+            showMenu();
+        }
+
+        window.addEventListener("resize", showMenu);
+    </script>
+
+    <!-- reserve table and online order -->
+
+
+    <section class="rtandord" id="restable">
+        <h1 class="restitle">OUR SERVICES</h1>
+        <div class="rtoord">
+
+            <div class="restable">
+                <h2>Reserve a Table</h2>
+                <p>Select your details and we’ll try to get the best seats for you.</p>
+                <div class="restform">
+                    <div class="select-box">
+                        <p>No.Of.Members</p>
+                        <select>
+                            <option>2 Members</option>
+                            <option>4 Members</option>
+                            <option>8 Members</option>
+                            <option>10 Members</option>
+                            <option>16 Members</option>
+                            <option>20 Members</option>
+                        </select>
+                    </div>
+
+                    <div class="resdate">
+                        <p>Date</p>
+                        <input type="date" name="" id="">
+                    </div>
+
+                    <div class="restime">
+                        <p>Time</p>
+                        <select>
+                            <option>9:00 AM</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>1:00 PM</option>
+                            <option>2:00 PM</option>
+                            <option>3:00 PM</option>
+                            <option>4:00 PM</option>
+                            <option>5:00 PM</option>
+                            <option>6:00 PM</option>
+                            <option>7:00 PM</option>
+                            <option>8:00 PM</option>
+                            <option>9:00 PM</option>
+                            <option>10:00 PM</option>
+                        </select>
+                    </div>
+                    <a href="">Find A Table</a>
+                </div>
+            </div>
+            <!-- line -->
+            <hr class="rline">
+
+            <div class="ordonline">
+                <h2>Order Through Online</h2>
+                <h4>Get It While It's Hot !</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugit neque non numquam odit
+                    sunt,
+                    qui ab perspiciatis. Fugiat eligendi architecto illum. Nostrum, molestiae cupiditate eligendi
+                    repellat
+                    nisi voluptate nihil.</p>
+                <a href="#menu">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- slide review -->
+
+
+    <!-- Review Slider -->
+    <div class="reviewtop">
+        <h1>TESTIMONIALS</h1>
+        <p>Our Quality And Taste Speaks...</p>
+    </div>
+    <section class="revslide">
+
+
+
+        <div class="revslides" id="revslides">
+
+            <div class="rev1">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+
+                <h3>
+                    "C for Chicken la crispy chicken burger semma!
+                    Cheese melt, mayo dripping, chicken romba juicy.
+                    Delivery kooda fast-a vanthuchu. Must try!"
+                </h3>
+                <p>- Aravind</p>
+            </div>
+
+            <div class="rev1">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <h3>
+                    "Best fried chicken in town! Popcorn chicken ku
+                    naanga full fan aayitom. Kids ku pudikkum maathiri
+                    not too spicy, but super crunchy. Highly recommended!"
+                </h3>
+                <p>- Priya</p>
+            </div>
+
+            <div class="rev1">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <h3>
+                    "BBQ chicken drumsticks + grilled corn combo was fire.
+                    Sauce glazing perfect, coleslaw fresh.
+                    Portion size kooda value for money. Will order again!"
+                </h3>
+                <p>- Mohammed S</p>
+            </div>
+
+            <div class="rev1">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+
+                <h3>
+                    "Chicken Fried Rice + Fried Chicken combo is my go-to
+                    lunch. Rice flavourful, chicken crispy,
+                    coleslaw super. C for Chicken never disappoints!"
+                </h3>
+                <p>- Karthik</p>
+            </div>
+
+            <div class="rev1">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <h3>
+                    "Shawarma roll and grill chicken taste authentic.
+                    Clean packaging, hot-a deliver panranga.
+                    C for Chicken is now my family's favourite chicken spot!"
+                </h3>
+                <p>- Divya L.</p>
+            </div>
+
+        </div>
+
+        <button class="rprev" onclick="rprevSlide()">
+            &#10094;
+        </button>
+
+        <button class="rnext" onclick="rnextSlide()">
+            &#10095;
+        </button>
+
+    </section>
+    <!-- line -->
+    <hr class="revline">
+
+    <!-- review slide -->
+    <script>
+        let revindex = 0;
+
+        const revslides = document.querySelector("#revslides");
+        const revtotal = revslides.children.length;
+
+        // Show the selected review
+        function rshowSlide() {
+            revslides.style.transform =
+                `translateX(-${revindex * 100}%)`;
+        }
+
+        // Next review
+        function rnextSlide() {
+            revindex++;
+
+            if (revindex >= revtotal) {
+                revindex = 0;
+            }
+
+            rshowSlide();
+        }
+
+        // Previous review
+        function rprevSlide() {
+            revindex--;
+
+            if (revindex < 0) {
+                revindex = revtotal - 1;
+            }
+
+            rshowSlide();
+        }
+    </script>
+
+    <!-- contact page -->
+    <section class="contact" id="contact">
+        <div class="ctop">
+            <h1>CONTACT US</h1>
+        </div>
+
+        <div class="cbottom">
+            <div class="bform">
+                <p>DROP US A LINE AND WE'LL GET BACK TO YOU,</p>
+                <div class="bform1">
+                    <input type="text" name="" id="" placeholder=" first name*">
+                    <input type="text" name="" id="" placeholder="last name"><br>
+                    <input type="number" name="" id="" placeholder=" Phone number*">
+                    <input type="email" name="" id="" placeholder="E-Mail*"><br>
+                    <input type="text" name="" id="" class="subm" placeholder="Subject"><br>
+                    <input type="text" name="" id="" class="subm1" placeholder="Leave Us A Message"><br>
+                    <a href="">Submit</a>
+                </div>
+            </div>
+
+            <div class="bimg">
+                <img src="/images/contact.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- footer-section -->
+    <section class=" footer">
+        <div class="fleft">
+            <h4>ADDRESS</h4>
+            <h5>120/1, RP Pudur ,salem road <br>Namakkal, 637001</h5>
+            <div class="qlinks">
+            <a href="index.html">Home</a><br>
+            <a href="#restable">Reserve A Table</a><br>
+            <a href="#menu">Order Online</a><br>
+            <a href="#contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="fmid">
+            <div class="ohors">
+                <h1>OPENING HOURS</h1>
+                <p>Mon - Fri: 11am - 10pm <br>​Sat - Sun: 11am - 12am</p>
+            </div>
+            <div class="flogo">
+                <img src="images/logo.png" alt="">
+            </div>
+            <div class="socialmedia">
+                <i class="fa-brands fa-instagram" ></i>
+                <i class="fa-brands fa-x-twitter" ></i>
+                <i class="fa-brands fa-facebook-f"></i>
+            </div>
+        </div>
+
+        <div class="fright">
+            <div class="fconta">
+                <h4>CONTACT US</h4>
+                <p><i class="fa-regular fa-envelope"></i> cforchicken@gmail.com <br><i class="fa-solid fa-phone"></i> +91 9011445500</p>
+
+                <div class="policy">
+                    <a href="">Refund Policy</a><br>
+                    <a href="">Privacy Policy</a><br>
+                    <a href="">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
